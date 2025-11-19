@@ -4,15 +4,15 @@ A comprehensive profanity filter for Nepali language supporting both Romanized N
 
 ## Installation
 
-\`\`\`bash
+```bash
 npm install nepali-profanity-filter
-\`\`\`
+```
 
 or
 
-\`\`\`bash
+```bash
 yarn add nepali-profanity-filter
-\`\`\`
+```
 
 ## Features
 
@@ -29,7 +29,7 @@ yarn add nepali-profanity-filter
 
 ### Basic Usage
 
-\`\`\`javascript
+```javascript
 import NepaliProfanityFilter from 'nepali-profanity-filter';
 
 const filter = new NepaliProfanityFilter();
@@ -50,11 +50,11 @@ console.log(result);
 // matches: ["muji"],
 // originalText: "hello muji world"
 // }
-\`\`\`
+```
 
 ### TypeScript
 
-\`\`\`typescript
+```typescript
 import NepaliProfanityFilter, { FilterOptions, FilterResult } from 'nepali-profanity-filter';
 
 const options: FilterOptions = {
@@ -67,21 +67,21 @@ matchWholeWord: true,
 const filter = new NepaliProfanityFilter(options);
 
 const result: FilterResult = filter.filter('some text');
-\`\`\`
+```
 
 ### Custom Replacement
 
-\`\`\`javascript
+```javascript
 const filter = new NepaliProfanityFilter({
 replaceWith: '[censored]'
 });
 
 filter.clean('hello muji'); // "hello [censored]"
-\`\`\`
+```
 
 ### Custom Words
 
-\`\`\`javascript
+```javascript
 const filter = new NepaliProfanityFilter({
 customWords: ['custom1', 'custom2']
 });
@@ -91,69 +91,69 @@ filter.addWords(['newbadword']);
 
 // Remove words
 filter.removeWords(['muji']);
-\`\`\`
+```
 
 ### Case Sensitive
 
-\`\`\`javascript
+```javascript
 const filter = new NepaliProfanityFilter({
 caseSensitive: true
 });
 
 filter.isProfane('muji'); // true
 filter.isProfane('MUJI'); // false
-\`\`\`
+```
 
 ### Partial Matching
 
-\`\`\`javascript
+```javascript
 const filter = new NepaliProfanityFilter({
 matchWholeWord: false
 });
 
 filter.isProfane('mujification'); // true
-\`\`\`
+```
 
 ## API
 
 ### Constructor
 
-\`\`\`typescript
+```typescript
 new NepaliProfanityFilter(options?: FilterOptions)
-\`\`\`
+```
 
 ### Options
 
 | Option             | Type     | Default      | Description                      |
 | ------------------ | -------- | ------------ | -------------------------------- |
-| \`replaceWith\`    | string   | \`"\*\*\*"\` | Replacement string for profanity |
-| \`customWords\`    | string[] | \`[]\`       | Additional words to filter       |
-| \`caseSensitive\`  | boolean  | \`false\`    | Enable case-sensitive matching   |
-| \`matchWholeWord\` | boolean  | \`true\`     | Only match whole words           |
+| `replaceWith`    | string   | `"\*\*\*"` | Replacement string for profanity |
+| `customWords`    | string[] | `[]`       | Additional words to filter       |
+| `caseSensitive`  | boolean  | `false`    | Enable case-sensitive matching   |
+| `matchWholeWord` | boolean  | `true`     | Only match whole words           |
 
 ### Methods
 
-#### \`isProfane(text: string): boolean\`
+#### `isProfane(text: string): boolean`
 
 Check if text contains profanity.
 
-#### \`clean(text: string): string\`
+#### `clean(text: string): string`
 
 Remove profanity from text.
 
-#### \`filter(text: string): FilterResult\`
+#### `filter(text: string): FilterResult`
 
 Get detailed filter results including matches.
 
-#### \`addWords(words: string[]): void\`
+#### `addWords(words: string[]): void`
 
 Add custom words to filter list.
 
-#### \`removeWords(words: string[]): void\`
+#### `removeWords(words: string[]): void`
 
 Remove words from filter list.
 
-#### \`getWords(): string[]\`
+#### `getWords(): string[]`
 
 Get all words in filter list.
 
@@ -161,7 +161,7 @@ Get all words in filter list.
 
 ### Content Moderation
 
-\`\`\`javascript
+```javascript
 app.post('/comment', (req, res) => {
 const { text } = req.body;
 
@@ -173,22 +173,22 @@ error: 'Comment contains inappropriate language'
 
 // Save comment...
 });
-\`\`\`
+```
 
 ### Auto-cleaning
 
-\`\`\`javascript
+```javascript
 app.post('/post', (req, res) => {
 const { text } = req.body;
 const cleanText = filter.clean(text);
 
 // Save cleanText...
 });
-\`\`\`
+```
 
 ### React Hook
 
-\`\`\`javascript
+```javascript
 import { useState } from 'react';
 import NepaliProfanityFilter from 'nepali-profanity-filter';
 
@@ -207,23 +207,22 @@ return;
 };
 
 return (
-
 <form onSubmit={handleSubmit}>
-<textarea value={text} onChange={(e) => setText(e.target.value)} />
-{error && <p>{error}</p>}
-<button type="submit">Submit</button>
+    <textarea value={text} onChange={(e) => setText(e.target.value)} />
+    {error && <p>{error}</p>}
+    <button type="submit">Submit</button>
 </form>
 );
 }
-\`\`\`
+```
 
 ## Contributing
 
 We welcome contributions! To add more Nepali profanity words:
 
 1. Fork the repository
-2. Edit \`src/words.ts\`
-3. Add tests in \`tests/filter.test.ts\`
+2. Edit `src/words.ts`
+3. Add tests in `tests/filter.test.ts`
 4. Submit a pull request
 
 ## Privacy & Ethics
@@ -232,10 +231,10 @@ This package is designed to help maintain respectful online communities. The wor
 
 ## License
 
-MIT
 
 ## Support
 
 - 🐛 [Report bugs](https://github.com/upendrashrestha/nepali-profanity-filter/issues)
 - 💬 [Discussions](https://github.com/upendrashrestha/nepali-profanity-filter/discussions)
 - ⭐ [Star on GitHub](https://github.com/upendrashrestha/nepali-profanity-filter)
+

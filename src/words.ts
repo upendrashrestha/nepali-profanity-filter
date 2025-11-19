@@ -17,9 +17,6 @@ export const NEPALI_PROFANITY: string[] = [
   'chikne',
   'turi',
   'gu',
-
-  'asshole',
-  'ass',
   
   'मुजी',
   'रन्डी',

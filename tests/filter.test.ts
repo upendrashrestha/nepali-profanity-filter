@@ -25,7 +25,6 @@ describe('NepaliFrofanityFilter', () => {
     test('detects variations profanity ', () => {
       expect(filter.isProfane('l@d0')).toBe(true);
       expect(filter.isProfane('Mvji')).toBe(true);
-      expect(filter.isProfane('a$$h0le')).toBe(true);
     });
 
     test('case insensitive by default', () => {
@@ -83,8 +82,12 @@ describe('NepaliFrofanityFilter', () => {
 
   describe('custom words', () => {
     test('adds custom words', () => {
-      filter.addWords(['badword']);
-      expect(filter.isProfane('badword')).toBe(true);
+      filter.addWords(['badword','ass','asshole']);
+      expect(filter.isProfane('badword')).toBe(true);      
+    });
+
+    test('added words variations',() =>{
+        expect(filter.isProfane('a$$h0le')).toBe(true);
     });
 
     test('removes words', () => {
