@@ -1,6 +1,6 @@
 {
   "name": "nepali-profanity-filter",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A comprehensive profanity filter for Nepali language supporting both English and Devanagari script",
   "main": "dist/index.js",
   "module": "dist/index.mjs",

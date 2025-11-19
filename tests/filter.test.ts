@@ -82,12 +82,21 @@ describe('NepaliFrofanityFilter', () => {
 
   describe('custom words', () => {
     test('adds custom words', () => {
-      filter.addWords(['badword','ass','asshole']);
-      expect(filter.isProfane('badword')).toBe(true);      
+      filter.addWords(['badword']);
+      expect(filter.isProfane('badword')).toBe(true);  
+    });
+    
+    test('detects profanity on added custom words', () => {
+      filter.addWords(['ass','fuck']); 
+      expect(filter.isProfane('fvck')).toBe(true); 
+      expect(filter.isProfane('a$$')).toBe(true); 
+      
     });
 
-    test('added words variations',() =>{
-        expect(filter.isProfane('a$$h0le')).toBe(true);
+    test('detects profanity on added custom words with matchWholeWord false', () => {
+     const customFilter = new NepaliProfanityFilter({ matchWholeWord: false });
+     customFilter.addWords(['ass']); 
+     expect(customFilter.isProfane('a$$h0le')).toBe(true);   
     });
 
     test('removes words', () => {
