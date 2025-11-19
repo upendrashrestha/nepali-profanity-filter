@@ -1,4 +1,4 @@
-const readme = `# Nepali Profanity Filter
+# Nepali Profanity Filter
 
 A comprehensive profanity filter for Nepali language supporting both Romanized Nepali and Devanagari script.
 
@@ -207,6 +207,7 @@ return;
 };
 
 return (
+
 <form onSubmit={handleSubmit}>
 <textarea value={text} onChange={(e) => setText(e.target.value)} />
 {error && <p>{error}</p>}
@@ -238,4 +239,3 @@ MIT
 - 🐛 [Report bugs](https://github.com/upendrashrestha/nepali-profanity-filter/issues)
 - 💬 [Discussions](https://github.com/upendrashrestha/nepali-profanity-filter/discussions)
 - ⭐ [Star on GitHub](https://github.com/upendrashrestha/nepali-profanity-filter)
-  `;
