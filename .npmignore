@@ -1,0 +1,10 @@
+const npmignore = `
+src/
+tests/
+.github/
+*.test.ts
+tsconfig.json
+.eslintrc.js
+.prettierrc
+jest.config.js
+`;
