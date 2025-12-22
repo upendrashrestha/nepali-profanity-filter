@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    # branches: [mastrer]
+
+job:
+  test: 
+    runs-on: ubuntu-latest
+ 
+  strategy:
+    matrix:
+      node-version: [18, 20, 'lts/*']
+
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: {{matrix.node-version}}
+        cache: npm
+      
+      - name: Install Dependencies
+        uses: npm Install
+
+      - name: Run tests
+        uses: npm test
+
+
