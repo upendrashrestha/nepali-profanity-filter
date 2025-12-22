@@ -6,26 +6,28 @@ on:
   pull_request:
     # branches: [master]
 
-job:
+jobs:
   test: 
     runs-on: ubuntu-latest
  
-  strategy:
-    matrix:
-      node-version: [18, 20, 'lts/*']
+    strategy:
+      matrix:
+        node-version: [18, 20, 'lts/*']
 
     steps:
       - name: checkout repo
         uses: actions/checkout@v4
 
       - name: Setup Node.js
-        uses: {{matrix.node-version}}
-        cache: npm
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{matrix.node-version}}
+          cache: 'npm'
       
       - name: Install Dependencies
-        uses: npm Install
+        run: npm install
 
       - name: Run tests
-        uses: npm test
+        run: npm test
 
 
