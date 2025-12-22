@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [master]
+    branches: [master, add-github-action-CI] #run CI whenever you push to master or your branch. Pull requests to master will still work too.
   pull_request:
-    # branches: [master]
+    branches: [master]
 
 jobs:
   test: 
